@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ojou</title>
+    <meta id="meta-description" name="description" content="" />
+    <link rel="icon" href="/assets/icon-B_MG-eI6.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icon-BNWnKzBh.png" sizes="128x128" type="image/png" />
+    <script type="module" crossorigin src="/assets/index-CJ3jS4QI.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CliIlug9.css">
+  </head>
+  <body>
+    <header id="site-header">
+      <div id="brand-block">
+        <a id="brand" href="/">Ojou</a>
+        <p id="brand-tagline"></p>
+      </div>
+      <nav id="lang-switcher"></nav>
+      <div class="header-end">
+        <a id="account-login" href="/" hidden></a>
+        <div id="account-menu" hidden>
+          <button id="account-toggle" type="button" aria-expanded="false" aria-controls="account-panel"></button>
+          <div id="account-panel" role="menu" hidden>
+            <div class="menu-group">
+              <p id="account-who" class="menu-label"></p>
+            </div>
+            <div class="menu-separator" role="separator"></div>
+            <div class="menu-group">
+              <a id="account-review" class="menu-item" role="menuitem" href="/" hidden></a>
+              <a id="account-statistics" class="menu-item" role="menuitem" href="/" hidden></a>
+              <a id="account-settings" class="menu-item" role="menuitem" href="/"></a>
+              <a id="account-emails" class="menu-item" role="menuitem" href="/" hidden></a>
+            </div>
+            <div class="menu-separator" role="separator"></div>
+            <div class="menu-group">
+              <button id="account-logout" class="menu-item" role="menuitem" type="button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav id="quick-actions" class="quick" hidden></nav>
+    </header>
+
+    <main>
+      <article id="page-landing" hidden>
+        <section class="hero">
+          <h1 id="hero-title"></h1>
+          <p class="lede" id="hero-body"></p>
+        </section>
+
+        <section class="band">
+          <p class="eyebrow" id="directory-eyebrow"></p>
+          <h2 id="directory-heading"></h2>
+          <p class="lede" id="directory-body"></p>
+          <p class="free">
+            <strong id="free-headline"></strong>
+            <span id="free-note"></span>
+          </p>
+        </section>
+
+        <section class="band band-alt">
+          <p class="eyebrow" id="community-eyebrow"></p>
+          <h2 id="community-heading"></h2>
+          <p class="lede" id="community-body"></p>
+          <ul class="features">
+            <li>
+              <h3 id="community-add-title"></h3>
+              <p id="community-add-body"></p>
+            </li>
+            <li>
+              <h3 id="community-fix-title"></h3>
+              <p id="community-fix-body"></p>
+            </li>
+            <li>
+              <h3 id="community-review-title"></h3>
+              <p id="community-review-body"></p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="band invite">
+          <p class="eyebrow" id="invite-eyebrow"></p>
+          <h2 id="invite-heading"></h2>
+          <p class="lede" id="invite-body"></p>
+        </section>
+      </article>
+
+      <section id="page-home" hidden>
+        <h1 id="home-heading"></h1>
+        <p class="lede" id="home-body"></p>
+        <div id="home-actions"></div>
+
+        <section id="timeline-section" hidden>
+          <h2 id="timeline-heading"></h2>
+          <p id="timeline-tally"></p>
+          <ul id="timeline-list"></ul>
+        </section>
+      </section>
+
+      <section id="page-add-club" hidden>
+        <h1 id="add-club-heading"></h1>
+        <p class="lede" id="add-club-body"></p>
+        <p class="notice" id="add-club-review"></p>
+
+        <form id="add-club-form" novalidate>
+          <fieldset class="panel">
+            <label id="club-name-label" for="club-name"></label>
+            <p class="field-hint" id="club-name-hint"></p>
+            <div class="typeahead">
+              <div class="field-line" id="club-name-field">
+                <input id="club-name" name="name" type="text" required
+                       autocomplete="off" role="combobox" aria-expanded="false"
+                       aria-autocomplete="list" aria-controls="club-suggestions" />
+                <em class="new-note" id="club-name-new" role="status"></em>
+              </div>
+              <ul class="tag-suggestions" id="club-suggestions" role="listbox" hidden></ul>
+            </div>
+
+            <div id="club-new-fields" hidden>
+              <label id="website-label" for="website"></label>
+              <div class="field-line" id="website-field">
+                <span class="field-prefix" id="website-prefix" aria-hidden="true"></span>
+                <input id="website" name="website" type="text" inputmode="url" />
+              </div>
+            </div>
+
+            <div id="club-known-website" hidden></div>
+          </fieldset>
+
+          <fieldset class="panel" id="club-classes" hidden>
+            <legend id="club-classes-heading"></legend>
+            <ul class="activity-list" id="club-classes-list"></ul>
+            <p id="club-classes-empty" hidden></p>
+          </fieldset>
+
+          <button type="submit" id="add-club-submit"></button>
+        </form>
+        <p class="form-status" id="add-club-status" role="alert" hidden></p>
+
+        <div id="activity-slot"></div>
+
+
+        <div id="add-club-done" hidden>
+          <p class="form-status" id="add-club-done-message" data-state="ok"></p>
+          <button type="button" id="add-club-again"></button>
+        </div>
+      </section>
+
+      <div id="activity-form-home" hidden>
+        <form id="activity-form" novalidate>
+          <fieldset class="panel">
+            <legend id="activity-form-heading"></legend>
+
+            <label id="activity-description-label" for="activity-description"></label>
+            <input id="activity-description" name="description" type="text" required />
+
+            <label id="activity-category-label" for="activity-category-input"></label>
+            <p class="field-hint" id="activity-category-hint"></p>
+            <div class="typeahead">
+              <div class="field-line" id="activity-category-field">
+                <input id="activity-category-input" type="text" autocomplete="off"
+                       role="combobox" aria-expanded="false"
+                       aria-autocomplete="list" aria-controls="activity-category-suggestions" />
+                <em class="new-note" id="activity-category-new" role="status"></em>
+              </div>
+              <ul class="tag-suggestions" id="activity-category-suggestions" role="listbox" hidden></ul>
+            </div>
+
+            <fieldset class="days">
+              <legend id="activity-days-label"></legend>
+              <p class="field-hint" id="activity-days-hint"></p>
+              <div id="activity-days"></div>
+
+              <div class="when">
+                <input id="activity-starts" name="startsAt" type="time" required />
+                <span class="when-between" aria-hidden="true">-</span>
+                <input id="activity-ends" name="endsAt" type="time" required />
+              </div>
+            </fieldset>
+
+            <label id="activity-place-label" for="activity-place-address"></label>
+            <div id="activity-place-field"></div>
+
+            <fieldset class="ages">
+              <legend id="activity-age-legend"></legend>
+              <p class="field-hint" id="activity-age-hint"></p>
+              <div class="when">
+                <input id="activity-min-age" name="minAge" type="number" min="0" max="120" inputmode="numeric" />
+                <span class="when-between" aria-hidden="true">-</span>
+                <input id="activity-max-age" name="maxAge" type="number" min="0" max="120" inputmode="numeric" />
+              </div>
+            </fieldset>
+
+            <label id="activity-price-label" for="activity-price"></label>
+            <p class="field-hint" id="activity-price-hint"></p>
+            <div class="field-line" id="activity-price-field">
+              <input id="activity-price" name="price" type="number"
+                     min="0" max="50000" step="0.05" inputmode="decimal" />
+              <em class="new-note" id="activity-price-new" role="status"></em>
+            </div>
+          </fieldset>
+
+          <button type="submit" id="activity-submit"></button>
+          <button type="button" id="activity-cancel" hidden></button>
+          <p class="form-status" id="activity-status" role="alert" hidden></p>
+        </form>
+      </div>
+
+      <section id="page-club" hidden>
+        <h1 id="club-page-name">
+          <span class="card-tools card-tools-corner" id="club-tools"></span>
+          <span id="club-page-name-text"></span>
+        </h1>
+        <p id="club-details"></p>
+        <div id="club-kind"></div>
+        <p id="club-where"></p>
+        <div id="club-credit"></div>
+        <p class="form-status" id="club-status" role="alert" hidden></p>
+        <div id="club-body" hidden>
+          <div class="button-group" id="club-view" role="group"></div>
+          <ul class="activity-list" id="club-activities"></ul>
+          <div id="club-week" hidden></div>
+          <dialog id="club-class"></dialog>
+          <p id="club-activities-empty" hidden></p>
+        </div>
+
+        <div id="club-add" hidden></div>
+      </section>
+
+      <section id="page-search" hidden>
+        <h1 id="search-heading"></h1>
+        <form id="search-form">
+          <div class="ask">
+            <label class="visually-hidden" id="search-query-label" for="search-query"></label>
+            <input id="search-query" name="query" type="search" autocomplete="off" />
+          </div>
+
+          <div class="narrow" id="search-narrow"></div>
+        </form>
+
+        <p id="search-status" role="status"></p>
+        <ul id="search-results"></ul>
+      </section>
+
+      <section id="page-map" hidden>
+        <h1 id="map-heading"></h1>
+
+        <form id="map-filters">
+          <div class="narrow" id="map-narrow"></div>
+        </form>
+        <p id="map-status" role="status"></p>
+        <div id="map-canvas"></div>
+      </section>
+
+      <section id="page-review" hidden>
+        <h1 id="review-heading"></h1>
+        <p class="lede" id="review-body"></p>
+        <div class="button-group" id="review-filters" role="group"></div>
+        <p id="review-empty" hidden></p>
+        <ul id="review-list"></ul>
+      </section>
+
+      <section id="page-statistics" hidden>
+        <h1 id="statistics-heading"></h1>
+        <p class="lede" id="statistics-body"></p>
+        <p id="statistics-status" role="status"></p>
+        <dl id="statistics-figures" hidden></dl>
+        <h2 id="statistics-languages-heading"></h2>
+        <dl id="statistics-languages" hidden></dl>
+      </section>
+
+      <section id="page-privacy" hidden>
+        <h1 id="privacy-heading"></h1>
+        <p class="lede" id="privacy-collect"></p>
+        <p class="lede" id="privacy-contributions"></p>
+      </section>
+
+      <section id="page-settings" hidden>
+        <h1 id="settings-heading"></h1>
+        <p class="settings-identity">
+          <span id="settings-email-label"></span>
+          <strong id="settings-email"></strong>
+        </p>
+
+        <section class="panel" id="invited-panel">
+          <h2 id="invited-heading"></h2>
+          <p class="lede" id="invited-body"></p>
+          <p id="invited-who"></p>
+          <p id="invited-left"></p>
+          <div id="invite-controls"></div>
+          <p><a id="invited-tree-link" href="/"></a></p>
+        </section>
+
+        <section class="panel">
+          <h2 id="name-heading"></h2>
+          <p id="name-left"></p>
+          <form id="name-form" novalidate>
+            <label id="first-name-label" for="first-name"></label>
+            <input id="first-name" name="firstName" type="text" autocomplete="given-name" />
+            <p class="field-error" id="first-name-error" role="alert"></p>
+            <label id="last-name-label" for="last-name"></label>
+            <input id="last-name" name="lastName" type="text" autocomplete="family-name" />
+            <p class="field-error" id="last-name-error" role="alert"></p>
+            <label id="name-label" for="display-name"></label>
+            <p class="field-hint" id="name-hint"></p>
+            <input id="display-name" name="displayName" type="text" autocomplete="username" />
+            <p class="field-error" id="display-name-error" role="alert"></p>
+            <button type="submit" id="name-submit"></button>
+          </form>
+          <p class="form-status" id="name-status" role="status" hidden></p>
+        </section>
+
+        <section class="panel">
+          <h2 id="password-heading"></h2>
+          <p class="lede" id="password-body"></p>
+          <form id="password-form" novalidate>
+            <label id="current-password-label" for="current-password"></label>
+            <input id="current-password" name="currentPassword" type="password" autocomplete="current-password" required />
+            <label id="new-password-label" for="new-password"></label>
+            <input id="new-password" name="newPassword" type="password" autocomplete="new-password" required />
+            <p class="field-error" id="new-password-error" role="alert"></p>
+            <label id="confirm-password-label" for="confirm-password"></label>
+            <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required />
+            <p class="field-error" id="confirm-password-error" role="alert"></p>
+            <button type="submit" id="password-submit"></button>
+          </form>
+          <p class="form-status" id="password-status" role="alert" hidden></p>
+        </section>
+
+        <section class="panel" id="super-admin-panel" hidden>
+          <h2 id="super-admin-heading"></h2>
+          <p class="lede" id="super-admin-body"></p>
+          <button type="button" class="invite-open" id="cookie-note-again"></button>
+        </section>
+
+        <section class="panel" id="delete-account-panel">
+          <h2 id="delete-heading"></h2>
+          <p class="lede" id="delete-body"></p>
+          <div id="delete-controls"></div>
+        </section>
+      </section>
+
+      <section id="page-tree" hidden>
+        <h1 id="tree-heading"></h1>
+        <p class="lede" id="tree-body"></p>
+        <p id="tree-status" role="status"></p>
+        <div id="tree-root"></div>
+      </section>
+
+      <section id="page-login" hidden>
+        <h1 id="login-heading"></h1>
+        <form id="login-form" novalidate>
+          <label id="login-email-label" for="login-email"></label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required />
+          <label id="login-password-label" for="login-password"></label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+          <button type="submit" id="login-submit"></button>
+        </form>
+        <p class="form-status" id="login-status" role="alert" hidden></p>
+        <p><a id="login-forgot" href="/"></a></p>
+      </section>
+
+      <section id="page-forgot" hidden>
+        <h1 id="forgot-heading"></h1>
+        <form id="forgot-form" novalidate>
+          <label id="forgot-email-label" for="forgot-email"></label>
+          <input id="forgot-email" name="email" type="email" autocomplete="email" required />
+          <p class="field-error" id="forgot-email-error" role="alert"></p>
+          <button type="submit" id="forgot-submit"></button>
+        </form>
+        <p class="form-status" id="forgot-status" role="alert" hidden></p>
+        <p><a id="forgot-back" href="/"></a></p>
+      </section>
+
+      <section id="page-reset" hidden>
+        <h1 id="reset-heading"></h1>
+        <p class="form-status" id="reset-status" role="alert" hidden></p>
+        <form id="reset-form" novalidate hidden>
+          <label id="reset-password-label" for="reset-password"></label>
+          <input id="reset-password" name="password" type="password" autocomplete="new-password" required />
+          <p class="field-error" id="reset-password-error" role="alert"></p>
+          <label id="reset-confirm-label" for="reset-confirm"></label>
+          <input id="reset-confirm" name="confirmPassword" type="password" autocomplete="new-password" required />
+          <p class="field-error" id="reset-confirm-error" role="alert"></p>
+          <button type="submit" id="reset-submit"></button>
+        </form>
+      </section>
+
+      <section id="page-emails" hidden>
+        <h1 id="emails-heading"></h1>
+        <p class="lede" id="emails-body"></p>
+        <p class="form-status" id="emails-status" role="status" hidden></p>
+        <div id="emails-list"></div>
+      </section>
+
+      <section id="page-join" hidden>
+        <h1 id="join-heading"></h1>
+        <p class="lede" id="join-body"></p>
+        <p class="form-status" id="join-status" role="alert" hidden></p>
+        <form id="join-form" novalidate hidden>
+          <label id="join-email-label" for="join-email"></label>
+          <input id="join-email" name="email" type="email" autocomplete="email" readonly />
+          <label id="join-first-label" for="join-first"></label>
+          <input id="join-first" name="firstName" type="text" autocomplete="given-name" required />
+          <label id="join-last-label" for="join-last"></label>
+          <input id="join-last" name="lastName" type="text" autocomplete="family-name" required />
+          <label id="join-name-label" for="join-name"></label>
+          <p class="field-hint" id="join-name-hint"></p>
+          <input id="join-name" name="displayName" type="text" autocomplete="username" required />
+          <p class="field-error" id="join-name-error" role="alert"></p>
+          <label id="join-password-label" for="join-password"></label>
+          <input id="join-password" name="password" type="password" autocomplete="new-password" required />
+          <p class="field-error" id="join-password-error" role="alert"></p>
+          <button type="submit" id="join-submit"></button>
+        </form>
+      </section>
+
+      <section id="page-not-found" hidden>
+        <h1 id="notfound-heading"></h1>
+        <p class="lede" id="notfound-body"></p>
+      </section>
+    </main>
+
+    <footer id="site-footer">
+      <p id="footer-note"></p>
+      <p id="footer-privacy"><a id="privacy-link" href="/"></a></p>
+      <nav id="lang-switcher-footer"></nav>
+    </footer>
+
+    <aside id="cookie-note" hidden>
+      <p id="cookie-note-text"></p>
+      <button type="button" id="cookie-note-dismiss"></button>
+    </aside>
+
+    <dialog id="relationship-dialog">
+      <form id="relationship-form" method="dialog" novalidate>
+        <h2 id="relationship-legend"></h2>
+        <p class="lede" id="relationship-body"></p>
+        <div id="relationship-options"></div>
+        <div id="relationship-other-row" hidden>
+          <label id="relationship-other-label" for="relationship-other"></label>
+          <textarea id="relationship-other" name="relationshipOther" rows="3"></textarea>
+        </div>
+        <div class="dialog-buttons">
+          <button type="submit" id="relationship-submit"></button>
+          <button type="button" id="relationship-skip"></button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toasts" role="region" aria-live="polite"></div>
+
+    <!-- 4e07 -->
+  </body>
+</html>
