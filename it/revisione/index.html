@@ -7,7 +7,7 @@
     <meta id="meta-description" name="description" content="" />
     <link rel="icon" href="/assets/icon-B_MG-eI6.svg" type="image/svg+xml" />
     <link rel="icon" href="/assets/icon-BNWnKzBh.png" sizes="128x128" type="image/png" />
-    <script type="module" crossorigin src="/assets/index-O2KgI6W5.js"></script>
+    <script type="module" crossorigin src="/assets/index-BX8yFRTC.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Be5k_vNA.css">
   </head>
   <body>
@@ -123,6 +123,7 @@
                 <span class="field-prefix" id="website-prefix" aria-hidden="true"></span>
                 <input id="website" name="website" type="text" inputmode="url" />
               </div>
+              <p class="field-error" id="website-error" role="alert"></p>
             </div>
 
             <div id="club-known-website" hidden></div>
@@ -328,6 +329,7 @@
           <form id="password-form" novalidate>
             <label id="current-password-label" for="current-password"></label>
             <input id="current-password" name="currentPassword" type="password" autocomplete="current-password" required />
+            <p class="field-error" id="current-password-error" role="alert"></p>
             <label id="new-password-label" for="new-password"></label>
             <input id="new-password" name="newPassword" type="password" autocomplete="new-password" required />
             <p class="field-error" id="new-password-error" role="alert"></p>
@@ -364,8 +366,10 @@
         <form id="login-form" novalidate>
           <label id="login-email-label" for="login-email"></label>
           <input id="login-email" name="email" type="email" autocomplete="email" required />
+          <p class="field-error" id="login-email-error" role="alert"></p>
           <label id="login-password-label" for="login-password"></label>
           <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+          <p class="field-error" id="login-password-error" role="alert"></p>
           <button type="submit" id="login-submit"></button>
         </form>
         <p class="form-status" id="login-status" role="alert" hidden></p>
@@ -464,6 +468,6 @@
 
     <div id="toasts" role="region" aria-live="polite"></div>
 
-    <!-- edd3 -->
+    <!-- dd64 -->
   </body>
 </html>
