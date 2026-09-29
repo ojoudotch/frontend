@@ -7,8 +7,8 @@
     <meta id="meta-description" name="description" content="" />
     <link rel="icon" href="/assets/icon-B_MG-eI6.svg" type="image/svg+xml" />
     <link rel="icon" href="/assets/icon-BNWnKzBh.png" sizes="128x128" type="image/png" />
-    <script type="module" crossorigin src="/assets/index-BX8yFRTC.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Be5k_vNA.css">
+    <script type="module" crossorigin src="/assets/index-GJskedMW.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-GbuqQOZ5.css">
   </head>
   <body>
     <header id="site-header">
@@ -208,6 +208,58 @@
         </form>
       </div>
 
+      <section id="page-place" hidden>
+        <h1 id="place-page-name">
+          <span class="card-tools card-tools-corner" id="place-tools"></span>
+          <span id="place-page-name-text"></span>
+        </h1>
+        <p class="form-status" id="place-page-status" role="alert" hidden></p>
+        <div id="place-page-body" hidden></div>
+      </section>
+
+      <section id="page-add-place" hidden>
+        <h1 id="add-place-heading"></h1>
+        <p class="lede" id="add-place-body"></p>
+        <p class="notice" id="add-place-review"></p>
+
+        <form id="add-place-form" novalidate>
+          <fieldset class="panel">
+            <label id="place-name-label" for="place-name"></label>
+            <input id="place-name" name="name" type="text" required />
+
+            <label id="place-website-label" for="place-website"></label>
+            <div class="field-line" id="place-website-field">
+              <span class="field-prefix" id="place-website-prefix" aria-hidden="true"></span>
+              <input id="place-website" name="website" type="text" inputmode="url" />
+            </div>
+            <p class="field-error" id="place-website-error" role="alert"></p>
+
+            <label id="place-category-label" for="place-category-input"></label>
+            <p class="field-hint" id="place-category-hint"></p>
+            <div class="typeahead">
+              <div class="field-line" id="place-category-field">
+                <input id="place-category-input" type="text" autocomplete="off"
+                       role="combobox" aria-expanded="false"
+                       aria-autocomplete="list" aria-controls="place-category-suggestions" />
+                <em class="new-note" id="place-category-new" role="status"></em>
+              </div>
+              <ul class="tag-suggestions" id="place-category-suggestions" role="listbox" hidden></ul>
+            </div>
+
+            <label id="place-where-label" for="place-where-address"></label>
+            <div id="place-where-field"></div>
+          </fieldset>
+
+          <button type="submit" id="add-place-submit"></button>
+        </form>
+        <p class="form-status" id="add-place-status" role="alert" hidden></p>
+
+        <div id="add-place-done" hidden>
+          <p class="form-status" id="add-place-done-message" data-state="ok"></p>
+          <button type="button" id="add-place-again"></button>
+        </div>
+      </section>
+
       <section id="page-club" hidden>
         <h1 id="club-page-name">
           <span class="card-tools card-tools-corner" id="club-tools"></span>
@@ -230,7 +282,7 @@
       </section>
 
       <section id="page-search" hidden>
-        <h1 id="search-heading"></h1>
+        <h1 id="search-heading" class="visually-hidden"></h1>
         <form id="search-form">
           <div class="ask">
             <label class="visually-hidden" id="search-query-label" for="search-query"></label>
@@ -241,11 +293,16 @@
         </form>
 
         <p id="search-status" role="status"></p>
+
+        <h2 id="search-results-heading" hidden></h2>
         <ul id="search-results"></ul>
+
+        <h2 id="search-places-heading" hidden></h2>
+        <ul id="search-places"></ul>
       </section>
 
       <section id="page-map" hidden>
-        <h1 id="map-heading"></h1>
+        <h1 id="map-heading" class="visually-hidden"></h1>
 
         <form id="map-filters">
           <div class="narrow" id="map-narrow"></div>
@@ -260,6 +317,9 @@
         <div class="button-group" id="review-filters" role="group"></div>
         <p id="review-empty" hidden></p>
         <ul id="review-list"></ul>
+
+        <h2 id="review-places-heading" hidden></h2>
+        <ul id="review-places"></ul>
       </section>
 
       <section id="page-statistics" hidden>
@@ -468,6 +528,6 @@
 
     <div id="toasts" role="region" aria-live="polite"></div>
 
-    <!-- dd64 -->
+    <!-- 8f9c -->
   </body>
 </html>
