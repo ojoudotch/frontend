@@ -21,8 +21,8 @@
       type="font/woff2"
       crossorigin
     />
-    <script type="module" crossorigin src="/assets/index-Cr5rHAmf.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Cvr2x71q.css">
+    <script type="module" crossorigin src="/assets/index-kotDGu_t.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Bm0siwa9.css">
   </head>
   <body>
     <header id="site-header">
@@ -43,6 +43,7 @@
             <div class="menu-group">
               <a id="account-review" class="menu-item" role="menuitem" href="/" hidden></a>
               <a id="account-statistics" class="menu-item" role="menuitem" href="/" hidden></a>
+              <a id="account-invoices" class="menu-item" role="menuitem" href="/"></a>
               <a id="account-settings" class="menu-item" role="menuitem" href="/"></a>
               <a id="account-emails" class="menu-item" role="menuitem" href="/" hidden></a>
             </div>
@@ -61,6 +62,7 @@
         <section class="hero">
           <h1 id="hero-title"></h1>
           <p class="lede" id="hero-body"></p>
+          <p class="lede" id="hero-clubs"></p>
         </section>
 
         <section class="band">
@@ -105,6 +107,13 @@
         <p class="lede" id="home-body"></p>
         <div id="home-actions"></div>
 
+        <section id="my-clubs-section" hidden>
+          <h2 id="my-clubs-heading"></h2>
+          <ul id="my-clubs-list"></ul>
+        </section>
+
+        <div id="my-children-clubs"></div>
+
         <section id="timeline-section" hidden>
           <h2 id="timeline-heading"></h2>
           <p id="timeline-tally"></p>
@@ -117,7 +126,7 @@
         <p class="lede" id="add-club-body"></p>
         <p class="notice" id="add-club-review"></p>
 
-        <form id="add-club-form" novalidate>
+        <form id="add-club-form" class="form-sections" novalidate>
           <fieldset class="panel">
             <label id="club-name-label" for="club-name"></label>
             <p class="field-hint" id="club-name-hint"></p>
@@ -145,80 +154,80 @@
 
           <fieldset class="panel" id="club-classes" hidden>
             <legend id="club-classes-heading"></legend>
-            <ul class="activity-list" id="club-classes-list"></ul>
+            <ul class="class-list" id="club-classes-list"></ul>
             <p id="club-classes-empty" hidden></p>
           </fieldset>
 
+          <p class="form-status" id="add-club-status" role="alert"></p>
           <button type="submit" id="add-club-submit"></button>
         </form>
-        <p class="form-status" id="add-club-status" role="alert" hidden></p>
 
-        <div id="activity-slot"></div>
+        <div id="class-slot"></div>
 
 
         <div id="add-club-done" hidden>
           <p class="form-status" id="add-club-done-message" data-state="ok"></p>
-          <button type="button" id="add-club-again"></button>
+          <button type="button" class="button-send" id="add-club-again"></button>
         </div>
       </section>
 
-      <div id="activity-form-home" hidden>
-        <form id="activity-form" novalidate>
+      <div id="class-form-home" hidden>
+        <form id="class-form" class="form-sections" novalidate>
           <fieldset class="panel">
-            <legend id="activity-form-heading"></legend>
+            <legend id="class-form-heading"></legend>
 
-            <label id="activity-description-label" for="activity-description"></label>
-            <input id="activity-description" name="description" type="text" required />
+            <label id="class-description-label" for="class-description"></label>
+            <input id="class-description" name="description" type="text" required />
 
-            <label id="activity-category-label" for="activity-category-input"></label>
-            <p class="field-hint" id="activity-category-hint"></p>
+            <label id="class-category-label" for="class-category-input"></label>
+            <p class="field-hint" id="class-category-hint"></p>
             <div class="typeahead">
-              <div class="field-line" id="activity-category-field">
-                <input id="activity-category-input" type="text" autocomplete="off"
+              <div class="field-line" id="class-category-field">
+                <input id="class-category-input" type="text" autocomplete="off"
                        role="combobox" aria-expanded="false"
-                       aria-autocomplete="list" aria-controls="activity-category-suggestions" />
-                <em class="new-note" id="activity-category-new" role="status"></em>
+                       aria-autocomplete="list" aria-controls="class-category-suggestions" />
+                <em class="new-note" id="class-category-new" role="status"></em>
               </div>
-              <ul class="tag-suggestions" id="activity-category-suggestions" role="listbox" hidden></ul>
+              <ul class="tag-suggestions" id="class-category-suggestions" role="listbox" hidden></ul>
             </div>
 
             <fieldset class="days">
-              <legend id="activity-days-label"></legend>
-              <p class="field-hint" id="activity-days-hint"></p>
-              <div id="activity-days"></div>
+              <legend id="class-days-label"></legend>
+              <p class="field-hint" id="class-days-hint"></p>
+              <div id="class-days"></div>
 
               <div class="when">
-                <input id="activity-starts" name="startsAt" type="time" required />
+                <input id="class-starts" name="startsAt" type="time" required />
                 <span class="when-between" aria-hidden="true">-</span>
-                <input id="activity-ends" name="endsAt" type="time" required />
+                <input id="class-ends" name="endsAt" type="time" required />
               </div>
             </fieldset>
 
-            <label id="activity-place-label" for="activity-place-address"></label>
-            <div id="activity-place-field"></div>
+            <label id="class-place-label" for="class-place-address"></label>
+            <div id="class-place-field"></div>
 
             <fieldset class="ages">
-              <legend id="activity-age-legend"></legend>
-              <p class="field-hint" id="activity-age-hint"></p>
+              <legend id="class-age-legend"></legend>
+              <p class="field-hint" id="class-age-hint"></p>
               <div class="when">
-                <input id="activity-min-age" name="minAge" type="number" min="0" max="120" inputmode="numeric" />
+                <input id="class-min-age" name="minAge" type="number" min="0" max="120" inputmode="numeric" />
                 <span class="when-between" aria-hidden="true">-</span>
-                <input id="activity-max-age" name="maxAge" type="number" min="0" max="120" inputmode="numeric" />
+                <input id="class-max-age" name="maxAge" type="number" min="0" max="120" inputmode="numeric" />
               </div>
             </fieldset>
 
-            <label id="activity-price-label" for="activity-price"></label>
-            <p class="field-hint" id="activity-price-hint"></p>
-            <div class="field-line" id="activity-price-field">
-              <input id="activity-price" name="price" type="number"
+            <label id="class-price-label" for="class-price"></label>
+            <p class="field-hint" id="class-price-hint"></p>
+            <div class="field-line" id="class-price-field">
+              <input id="class-price" name="price" type="number"
                      min="0" max="50000" step="0.05" inputmode="decimal" />
-              <em class="new-note" id="activity-price-new" role="status"></em>
+              <em class="new-note" id="class-price-new" role="status"></em>
             </div>
           </fieldset>
 
-          <button type="submit" id="activity-submit"></button>
-          <button type="button" id="activity-cancel" hidden></button>
-          <p class="form-status" id="activity-status" role="alert" hidden></p>
+          <p class="form-status" id="class-status" role="alert"></p>
+          <button type="submit" id="class-submit"></button>
+          <button type="button" id="class-cancel" hidden></button>
         </form>
       </div>
 
@@ -231,12 +240,83 @@
         <div id="place-page-body" hidden></div>
       </section>
 
+      <section id="page-club-settings" hidden>
+        <div class="tab-row" id="club-settings-tabs"></div>
+        <h1 id="club-settings-heading"></h1>
+        <p class="form-status" id="club-settings-status" role="alert" hidden></p>
+        <div id="club-settings-body" hidden></div>
+      </section>
+
+      <section id="page-club-class" hidden>
+        <div class="tab-row" id="club-class-tabs"></div>
+        <h1 id="club-class-heading"></h1>
+        <p class="lede" id="club-class-what"></p>
+        <p class="form-status" id="club-class-status" role="alert" hidden></p>
+        <div id="club-class-body" hidden></div>
+      </section>
+
+      <section id="page-club-members" hidden>
+        <div class="tab-row" id="club-members-tabs"></div>
+        <h1 id="club-members-heading"></h1>
+        <p class="form-status" id="club-members-status" role="alert" hidden></p>
+        <div id="club-members-body" hidden></div>
+      </section>
+
+      <section id="page-club-member" hidden>
+        <div class="tab-row" id="club-member-tabs"></div>
+        <h1 id="club-member-heading"></h1>
+        <p class="form-status" id="club-member-status" role="alert" hidden></p>
+        <div id="club-member-body" hidden></div>
+      </section>
+
+      <section id="page-club-invoices" hidden>
+        <div class="tab-row" id="club-invoices-tabs"></div>
+        <h1 id="club-invoices-heading"></h1>
+        <p class="form-status" id="club-invoices-status" role="alert" hidden></p>
+        <div id="club-invoices-body" hidden></div>
+      </section>
+
+      <section id="page-invoice" hidden>
+        <div class="tab-row" id="invoice-tabs"></div>
+        <h1 id="invoice-heading"></h1>
+        <p class="form-status" id="invoice-status" role="alert" hidden></p>
+        <div id="invoice-body" hidden></div>
+      </section>
+
+      <section id="page-my-invoices" hidden>
+        <h1 id="my-invoices-heading"></h1>
+        <p class="form-status" id="my-invoices-status" role="alert" hidden></p>
+        <div id="my-invoices-list" hidden></div>
+      </section>
+
+      <section id="page-create-club" hidden>
+        <h1 id="create-club-heading"></h1>
+        <p class="lede" id="create-club-body"></p>
+
+        <form id="create-club-form" class="form-sections" novalidate>
+          <fieldset class="panel">
+            <label id="create-club-name-label" for="create-club-name"></label>
+            <input id="create-club-name" name="name" type="text" required />
+
+            <label id="create-club-website-label" for="create-club-website"></label>
+            <div class="field-line" id="create-club-website-field">
+              <span class="field-prefix" id="create-club-website-prefix" aria-hidden="true"></span>
+              <input id="create-club-website" name="website" type="text" inputmode="url" />
+            </div>
+            <p class="field-error" id="create-club-website-error" role="alert"></p>
+          </fieldset>
+
+          <p class="form-status" id="create-club-status" role="alert"></p>
+          <button type="submit" id="create-club-submit"></button>
+        </form>
+      </section>
+
       <section id="page-add-place" hidden>
         <h1 id="add-place-heading"></h1>
         <p class="lede" id="add-place-body"></p>
         <p class="notice" id="add-place-review"></p>
 
-        <form id="add-place-form" novalidate>
+        <form id="add-place-form" class="form-sections" novalidate>
           <fieldset class="panel">
             <label id="place-name-label" for="place-name"></label>
             <input id="place-name" name="name" type="text" required />
@@ -264,17 +344,18 @@
             <div id="place-where-field"></div>
           </fieldset>
 
+          <p class="form-status" id="add-place-status" role="alert"></p>
           <button type="submit" id="add-place-submit"></button>
         </form>
-        <p class="form-status" id="add-place-status" role="alert" hidden></p>
 
         <div id="add-place-done" hidden>
           <p class="form-status" id="add-place-done-message" data-state="ok"></p>
-          <button type="button" id="add-place-again"></button>
+          <button type="button" class="button-send" id="add-place-again"></button>
         </div>
       </section>
 
       <section id="page-club" hidden>
+        <div class="tab-row" id="club-tabs"></div>
         <h1 id="club-page-name">
           <span class="card-tools card-tools-corner" id="club-tools"></span>
           <span id="club-page-name-text"></span>
@@ -286,10 +367,10 @@
         <p class="form-status" id="club-status" role="alert" hidden></p>
         <div id="club-body" hidden>
           <div class="button-group" id="club-view" role="group"></div>
-          <ul class="activity-list" id="club-activities"></ul>
+          <ul class="class-list" id="club-timetable"></ul>
           <div id="club-week" hidden></div>
           <dialog id="club-class"></dialog>
-          <p id="club-activities-empty" hidden></p>
+          <p id="club-timetable-empty" hidden></p>
         </div>
 
         <div id="club-add" hidden></div>
@@ -297,7 +378,7 @@
 
       <section id="page-search" hidden>
         <h1 id="search-heading" class="visually-hidden"></h1>
-        <form id="search-form">
+        <form id="search-form" class="form-bar">
           <div class="ask">
             <label class="visually-hidden" id="search-query-label" for="search-query"></label>
             <input id="search-query" name="query" type="search" autocomplete="off" />
@@ -318,7 +399,7 @@
       <section id="page-map" hidden>
         <h1 id="map-heading" class="visually-hidden"></h1>
 
-        <form id="map-filters">
+        <form id="map-filters" class="form-bar">
           <div class="narrow" id="map-narrow"></div>
         </form>
         <p id="map-status" role="status"></p>
@@ -347,12 +428,12 @@
       <section id="page-opt-out" hidden>
         <h1 id="opt-out-heading"></h1>
         <p class="lede" id="opt-out-body"></p>
-        <form id="opt-out-form" novalidate>
+        <form id="opt-out-form" class="form-wide" novalidate>
           <label id="opt-out-email-label" for="opt-out-email"></label>
           <input id="opt-out-email" name="email" type="email" disabled />
+          <p class="form-status" id="opt-out-status" role="alert"></p>
           <button type="submit" id="opt-out-submit"></button>
         </form>
-        <p class="form-status" id="opt-out-status" role="alert" hidden></p>
       </section>
 
       <section id="page-privacy" hidden>
@@ -377,6 +458,27 @@
           <p><a id="invited-tree-link" href="/"></a></p>
         </section>
 
+        <section class="panel" id="details-panel">
+          <h2 id="details-heading"></h2>
+          <form id="details-form" novalidate>
+            <div id="details-fields"></div>
+            <p class="form-status" id="details-status" role="alert"></p>
+            <button type="submit" id="details-submit"></button>
+          </form>
+        </section>
+
+        <section class="panel" id="details-clubs-panel" hidden>
+          <h2 id="details-clubs-heading"></h2>
+          <p class="lede" id="details-clubs-body"></p>
+          <div id="details-clubs-list"></div>
+        </section>
+
+        <section class="panel" id="children-panel" hidden>
+          <h2 id="children-heading"></h2>
+          <p class="lede" id="children-body"></p>
+          <div id="children-list"></div>
+        </section>
+
         <section class="panel">
           <h2 id="name-heading"></h2>
           <p id="name-left"></p>
@@ -391,9 +493,9 @@
             <p class="field-hint" id="name-hint"></p>
             <input id="display-name" name="displayName" type="text" autocomplete="username" />
             <p class="field-error" id="display-name-error" role="alert"></p>
+            <p class="form-status" id="name-status" role="status"></p>
             <button type="submit" id="name-submit"></button>
           </form>
-          <p class="form-status" id="name-status" role="status" hidden></p>
         </section>
 
         <section class="panel">
@@ -409,9 +511,9 @@
             <label id="confirm-password-label" for="confirm-password"></label>
             <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required />
             <p class="field-error" id="confirm-password-error" role="alert"></p>
+            <p class="form-status" id="password-status" role="alert"></p>
             <button type="submit" id="password-submit"></button>
           </form>
-          <p class="form-status" id="password-status" role="alert" hidden></p>
         </section>
 
         <section class="panel" id="super-admin-panel" hidden>
@@ -435,35 +537,34 @@
 
       <section id="page-login" hidden>
         <h1 id="login-heading"></h1>
-        <form id="login-form" novalidate>
+        <form id="login-form" class="form-wide" novalidate>
           <label id="login-email-label" for="login-email"></label>
           <input id="login-email" name="email" type="email" autocomplete="email" required />
           <p class="field-error" id="login-email-error" role="alert"></p>
           <label id="login-password-label" for="login-password"></label>
           <input id="login-password" name="password" type="password" autocomplete="current-password" required />
           <p class="field-error" id="login-password-error" role="alert"></p>
+          <p class="form-status" id="login-status" role="alert"></p>
           <button type="submit" id="login-submit"></button>
         </form>
-        <p class="form-status" id="login-status" role="alert" hidden></p>
         <p><a id="login-forgot" href="/"></a></p>
       </section>
 
       <section id="page-forgot" hidden>
         <h1 id="forgot-heading"></h1>
-        <form id="forgot-form" novalidate>
+        <form id="forgot-form" class="form-wide" novalidate>
           <label id="forgot-email-label" for="forgot-email"></label>
           <input id="forgot-email" name="email" type="email" autocomplete="email" required />
           <p class="field-error" id="forgot-email-error" role="alert"></p>
+          <p class="form-status" id="forgot-status" role="alert"></p>
           <button type="submit" id="forgot-submit"></button>
         </form>
-        <p class="form-status" id="forgot-status" role="alert" hidden></p>
         <p><a id="forgot-back" href="/"></a></p>
       </section>
 
       <section id="page-reset" hidden>
         <h1 id="reset-heading"></h1>
-        <p class="form-status" id="reset-status" role="alert" hidden></p>
-        <form id="reset-form" novalidate hidden>
+        <form id="reset-form" class="form-wide" novalidate hidden>
           <label id="reset-email-label" for="reset-email"></label>
           <input id="reset-email" name="email" type="email" autocomplete="username" readonly />
           <label id="reset-password-label" for="reset-password"></label>
@@ -472,6 +573,7 @@
           <label id="reset-confirm-label" for="reset-confirm"></label>
           <input id="reset-confirm" name="confirmPassword" type="password" autocomplete="new-password" required />
           <p class="field-error" id="reset-confirm-error" role="alert"></p>
+          <p class="form-status" id="reset-status" role="alert"></p>
           <button type="submit" id="reset-submit"></button>
         </form>
       </section>
@@ -486,14 +588,14 @@
       <section id="page-join" hidden>
         <h1 id="join-heading"></h1>
         <p class="lede" id="join-body"></p>
-        <p class="form-status" id="join-status" role="alert" hidden></p>
-        <form id="join-form" novalidate hidden>
+        <form id="join-form" class="form-wide" novalidate hidden>
           <label id="join-email-label" for="join-email"></label>
           <input id="join-email" name="email" type="email" autocomplete="email" readonly />
           <label id="join-first-label" for="join-first"></label>
           <input id="join-first" name="firstName" type="text" autocomplete="given-name" required />
           <label id="join-last-label" for="join-last"></label>
           <input id="join-last" name="lastName" type="text" autocomplete="family-name" required />
+          <div id="join-children"></div>
           <label id="join-name-label" for="join-name"></label>
           <p class="field-hint" id="join-name-hint"></p>
           <input id="join-name" name="displayName" type="text" autocomplete="username" required />
@@ -501,6 +603,7 @@
           <label id="join-password-label" for="join-password"></label>
           <input id="join-password" name="password" type="password" autocomplete="new-password" required />
           <p class="field-error" id="join-password-error" role="alert"></p>
+          <p class="form-status" id="join-status" role="alert"></p>
           <button type="submit" id="join-submit"></button>
         </form>
       </section>
@@ -522,6 +625,17 @@
       <button type="button" id="cookie-note-dismiss"></button>
     </aside>
 
+    <dialog id="club-invite" class="suggest-dialog"></dialog>
+    <dialog id="record-payment" class="suggest-dialog"></dialog>
+
+    <dialog id="club-enroll" class="suggest-dialog"></dialog>
+
+    <dialog id="club-add-child" class="suggest-dialog"></dialog>
+
+    <dialog id="club-class-people" class="suggest-dialog"></dialog>
+
+    <dialog id="invoice-payer" class="suggest-dialog"></dialog>
+
     <dialog id="relationship-dialog">
       <form id="relationship-form" method="dialog" novalidate>
         <h2 id="relationship-legend"></h2>
@@ -533,13 +647,13 @@
         </div>
         <div class="dialog-buttons">
           <button type="submit" id="relationship-submit"></button>
-          <button type="button" id="relationship-skip"></button>
+          <button type="button" class="button-quiet" id="relationship-skip"></button>
         </div>
       </form>
     </dialog>
 
     <div id="toasts" role="region" aria-live="polite"></div>
 
-    <!-- 97d2 -->
+    <!-- 7cc6 -->
   </body>
 </html>
